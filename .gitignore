@@ -1,2 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+
+#ignore assets folders, we only want to upload scripts
+assets/
+addons/
