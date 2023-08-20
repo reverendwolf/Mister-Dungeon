@@ -4,3 +4,4 @@
 #ignore assets folders, we only want to upload scripts
 assets/
 addons/
+*kit/
