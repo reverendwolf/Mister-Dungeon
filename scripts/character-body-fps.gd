@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 3.5
 const RUNSPEED = 8.0
 const JUMP_VELOCITY = 8
-const SENSITIVITY = 0.01
+const SENSITIVITY = 0.005
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -34,9 +34,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_pressed("run"):
-		speed = lerp(speed, RUNSPEED, get_physics_process_delta_time())
+		speed = RUNSPEED
 	else:
-		speed = lerp(speed, SPEED, get_physics_process_delta_time())
+		speed = SPEED
+		
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit(0)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
