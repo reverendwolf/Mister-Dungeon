@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 3.5
-const RUNSPEED = 8.0
+const RUNSPEED = 10.0
 const JUMP_VELOCITY = 8
 const SENSITIVITY = 0.005
 
@@ -33,7 +33,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	if Input.is_action_pressed("run"):
+	if !Input.is_action_pressed("run"):
 		speed = RUNSPEED
 	else:
 		speed = SPEED
